@@ -1,0 +1,16 @@
+@use "./../../scss/helper" as helper;
+
+.header_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @include helper.margin-left-right(1.5em);
+  margin-top: 3em;
+  margin-bottom: 2.5em;
+}
+
+h1 {
+  color: #fff;
+  letter-spacing: 10px;
+}

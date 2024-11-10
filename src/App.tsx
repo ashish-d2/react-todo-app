@@ -1,10 +1,16 @@
 import logo from "./logo.svg";
-import "./App.css";
+import "./App.scss";
+
+// imports
+import Header from "./components/Header/Header";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello, world!</h1>
+    <div className="app">
+      <div className="background__light"></div>
+      <main className="main main-background__light">
+        <Header />
+      </main>
     </div>
   );
 }
