@@ -3,6 +3,7 @@ import "./App.scss";
 
 // imports
 import Header from "./components/Header/Header";
+import Todo from "./components/Todo/Todo";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <div className="background__light"></div>
       <main className="main main-background__light">
         <Header />
+        <Todo />
       </main>
     </div>
   );

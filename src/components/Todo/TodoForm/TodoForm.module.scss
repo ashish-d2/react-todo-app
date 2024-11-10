@@ -1,0 +1,39 @@
+@use "./../../../scss/color" as c;
+
+.todoForm {
+  width: 100%;
+  height: 3em;
+  background-color: #fff;
+  border-radius: 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75em;
+
+  padding: 0.875em 1.25em;
+}
+
+.submit_btn {
+  width: 20px;
+  height: 20px;
+  background: none;
+  border-radius: 50%;
+  border: 1px solid c.$very-light-gary;
+  cursor: pointer;
+}
+
+.todo_input_field {
+  height: 100%;
+  width: 90%;
+  border: none;
+  font-family: inherit;
+
+  &:focus {
+    outline-color: transparent;
+  }
+
+  &::placeholder {
+    color: c.$light-gray;
+  }
+}
