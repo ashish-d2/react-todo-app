@@ -8,9 +8,15 @@
   @include helper.margin-left-right(1.5em);
   margin-top: 3em;
   margin-bottom: 2.5em;
+
+  .header_icon {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 h1 {
   color: #fff;
   letter-spacing: 10px;
+  font-size: 1.25em;
 }

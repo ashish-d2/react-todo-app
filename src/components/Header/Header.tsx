@@ -5,7 +5,7 @@ const Header = function () {
   return (
     <div className={styles.header_container}>
       <h1>TODO</h1>
-      <MoonIcon />
+      <MoonIcon className={styles.header_icon} />
     </div>
   );
 };
