@@ -7,7 +7,16 @@
 
   height: 3.25em;
 
-  margin: 1em 1.25em;
+  margin: 0 1.25em 0;
+
+  .cross_icon {
+    width: 12px;
+    height: 12px;
+  }
+
+  p {
+    color: c.$black-1;
+  }
 }
 
 .todoBtnContainer {
@@ -25,4 +34,11 @@
     border: 1px solid c.$very-light-gary;
     cursor: pointer;
   }
+}
+
+.line {
+  background-color: c.$gray-1;
+  width: 100%;
+  height: 1px;
+  border: none;
 }

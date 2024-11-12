@@ -5,14 +5,17 @@ import { ReactComponent as CrossIcon } from "./../../../../assets/images/icon-cr
 
 const TodoListItem = function () {
   return (
-    <div className={styles.todoList_item}>
-      <div className={styles.todoBtnContainer}>
-        <button className={styles.submit_btn}></button>
-        <p>Jog around the park 3x</p>
-      </div>
+    <>
+      <div className={styles.todoList_item}>
+        <div className={styles.todoBtnContainer}>
+          <button className={styles.submit_btn}></button>
+          <p>Jog around the park 3x</p>
+        </div>
 
-      <CrossIcon />
-    </div>
+        <CrossIcon className={styles.cross_icon} />
+      </div>
+      <hr className={styles.line} />
+    </>
   );
 };
 
