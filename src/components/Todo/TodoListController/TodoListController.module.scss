@@ -1,0 +1,25 @@
+@use "./../../../scss/color" as c;
+
+.todoListController {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.125em;
+  padding: 15px 80px;
+  background-color: #fff;
+  border-radius: 5px;
+  margin-top: 1em;
+
+  button {
+    border: none;
+    background-color: transparent;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: c.$light-gray;
+    font-family: inherit;
+  }
+
+  .active {
+    color: c.$active;
+  }
+}
