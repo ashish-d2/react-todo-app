@@ -1,4 +1,4 @@
-.background__light {
+.backgroundImg__light {
   position: absolute;
   top: 0;
   z-index: -1;
@@ -10,7 +10,7 @@
   transition: height 0.3s ease;
 
   @media (min-width: 765px) {
-    height: 250px;
+    height: 300px;
   }
 
   @media (min-width: 1200px) {

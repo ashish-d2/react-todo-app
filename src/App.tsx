@@ -8,7 +8,7 @@ import Todo from "./components/Todo/Todo";
 function App() {
   return (
     <div className="app">
-      <div className="background__light"></div>
+      <div className="backgroundImg__light"></div>
       <main className="main main-background__light">
         <Header />
         <Todo />

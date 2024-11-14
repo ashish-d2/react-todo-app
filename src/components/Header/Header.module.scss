@@ -12,11 +12,27 @@
   .header_icon {
     width: 20px;
     height: 20px;
+    transition: width 0.3s ease, height 0.3s ease;
   }
-}
 
-h1 {
-  color: #fff;
-  letter-spacing: 10px;
-  font-size: 1.25em;
+  h1 {
+    color: #fff;
+    letter-spacing: 10px;
+    font-size: 1.25em;
+    transition: font-size 0.3s ease;
+  }
+
+  // Media Query
+  @media (min-width: 768px) {
+    // Resizing font-size
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    // Resizing header icon
+    .header_icon {
+      width: 26px;
+      height: 26px;
+    }
+  }
 }
