@@ -7,7 +7,7 @@ const TodoListItem = function () {
   return (
     <>
       <div className={styles.todoList_item}>
-        <div className={styles.todoBtnContainer}>
+        <div className={styles.todoAndBtnContainer}>
           <button className={styles.submit_btn}></button>
           <p>Jog around the park 3x</p>
         </div>

@@ -6,20 +6,26 @@
   justify-content: space-between;
 
   height: 3.25em;
-
-  margin: 0 1.25em 0;
+  padding: 1em 1.25em;
 
   .cross_icon {
     width: 12px;
     height: 12px;
   }
 
-  p {
-    color: c.$black-1;
+  // media query for Desktop/Tablet view
+  @media (min-width: 768px) {
+    padding: 1.25em 1.5em;
+    height: 4em;
+
+    .cross_icon {
+      width: 18px;
+      height: 18px;
+    }
   }
 }
 
-.todoBtnContainer {
+.todoAndBtnContainer {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -33,6 +39,24 @@
     border-radius: 50%;
     border: 1px solid c.$very-light-gary;
     cursor: pointer;
+  }
+
+  p {
+    color: c.$black-1;
+  }
+
+  // Media Desktop/Tablet view
+  @media (min-width: 768px) {
+    gap: 24px;
+
+    .submit_btn {
+      width: 24px;
+      height: 24px;
+    }
+
+    p {
+      font-size: 1.125rem;
+    }
   }
 }
 
