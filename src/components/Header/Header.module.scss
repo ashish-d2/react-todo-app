@@ -5,7 +5,9 @@
   align-items: center;
   justify-content: space-between;
 
-  @include helper.margin-left-right(1.5em);
+  @include helper.min-max-width();
+
+  @include helper.padding-left-right(1.5em);
   margin-top: 3em;
   margin-bottom: 2.5em;
 
@@ -24,7 +26,10 @@
 
   // Media Query
   @media (min-width: 768px) {
+    margin-top: 4.375em;
+    @include helper.padding-left-right(0);
     // Resizing font-size
+
     h1 {
       font-size: 2.5rem;
     }

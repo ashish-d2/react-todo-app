@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="app">
       <div className="backgroundImg__light"></div>
-      <main className="main main-background__light">
+      <main className="main">
         <Header />
         <Todo />
       </main>

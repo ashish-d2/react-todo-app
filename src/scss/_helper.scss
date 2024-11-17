@@ -1,5 +1,14 @@
 // give margin of 1.5em (left and right) of container
-@mixin margin-left-right($value) {
-  margin-left: $value;
-  margin-right: $value;
+@mixin padding-left-right($value) {
+  // Padding because after setting min-max-width the margin is getting collapsed.
+  padding-left: $value;
+  padding-right: $value;
+
+  transition: padding-left 0.3s ease, padding-right 0.3s ease;
+}
+
+@mixin min-max-width() {
+  min-width: 327px;
+  max-width: 540px;
+  width: 100%;
 }
