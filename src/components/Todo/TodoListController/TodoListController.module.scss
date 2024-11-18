@@ -22,4 +22,11 @@
   .active {
     color: c.$active;
   }
+
+  // media query
+  @media (min-width: 768px) {
+    // removing padding and margin (when min-width is 768px the component is rendered inside TodoList controller so removing padding otherwise component style breaks.
+    padding: 0 80px;
+    margin-top: 0;
+  }
 }
