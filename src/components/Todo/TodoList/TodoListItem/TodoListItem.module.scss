@@ -8,6 +8,8 @@
   height: 3.25em;
   padding: 1em 1.25em;
 
+  cursor: pointer;
+
   .cross_icon {
     width: 12px;
     height: 12px;
@@ -21,6 +23,15 @@
     .cross_icon {
       width: 18px;
       height: 18px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    // hover effect
+    &:hover {
+      .cross_icon {
+        opacity: 1;
+      }
     }
   }
 }
@@ -39,6 +50,11 @@
     border-radius: 50%;
     border: 1px solid c.$very-light-gary;
     cursor: pointer;
+    transition: border-color 0.3s ease;
+
+    &:hover {
+      border-color: black;
+    }
   }
 
   p {
