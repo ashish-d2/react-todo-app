@@ -17,6 +17,12 @@
     font-weight: 700;
     color: c.$light-gray;
     font-family: inherit;
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    &:not(.active):hover {
+      color: c.$black-1;
+    }
   }
 
   .active {

@@ -14,5 +14,19 @@
     background-color: transparent;
     color: inherit;
     font-family: inherit;
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: c.$black-1;
+    }
+  }
+
+  @media (min-width: 768px) {
+    font-size: 0.875rem;
+
+    & > * {
+      flex-shrink: 0;
+    }
   }
 }
