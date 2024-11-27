@@ -57,8 +57,18 @@
     }
   }
 
+  .completed_btn {
+    background: linear-gradient(120deg, #55ddff, #c058f3);
+    border: none;
+  }
+
   p {
     color: c.$black-1;
+  }
+
+  .completed_text {
+    text-decoration: line-through;
+    color: c.$gray-2;
   }
 
   // Media Desktop/Tablet view
