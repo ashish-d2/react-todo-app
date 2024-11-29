@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 // style import
 import styles from "./TodoListItem.module.scss";
 
@@ -7,7 +5,7 @@ import styles from "./TodoListItem.module.scss";
 import { ReactComponent as CrossIcon } from "./../../../../assets/images/icon-cross.svg";
 import { ReactComponent as CheckIcon } from "./../../../../assets/images/icon-check.svg";
 
-// In order to mark a todo completed - the btn style si completed_btn and text style is completed_text
+// In order to mark a todo completed - the btn style is completed_btn and text style is completed_text
 
 const TodoListItem = function () {
   return (
