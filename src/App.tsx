@@ -5,15 +5,20 @@ import "./App.scss";
 import Header from "./components/Header/Header";
 import Todo from "./components/Todo/Todo";
 
+// context
+import { ThemeProvider } from "./context/ThemeContext";
+
 function App() {
   return (
-    <div className="app">
-      <div className="backgroundImg__light"></div>
-      <main className="main">
-        <Header />
-        <Todo />
-      </main>
-    </div>
+    <ThemeProvider>
+      <div className="app">
+        <div className="backgroundImg__light"></div>
+        <main className="main">
+          <Header />
+          <Todo />
+        </main>
+      </div>
+    </ThemeProvider>
   );
 }
 

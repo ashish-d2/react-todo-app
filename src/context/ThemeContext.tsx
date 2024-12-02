@@ -10,12 +10,9 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 // provider function type
-interface ThemeProviderPropsType {
-  children: ReactNode;
-}
 
 // provider function
-const ThemeProvider: React.FC<ThemeProviderPropsType> = function ({
+const ThemeProvider: React.FC<{ children: ReactNode }> = function ({
   children,
 }) {
   const [theme, setTheme] = useState<string>("light");
