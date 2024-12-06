@@ -7,8 +7,7 @@ import { useContext } from "react";
 import ThemeContext from "../../context/ThemeContext";
 
 const Header = function () {
-  const { theme, toggleTheme } = useContext(ThemeContext)!;
-  console.log(theme);
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
     <div className={styles.header_container}>

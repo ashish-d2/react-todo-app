@@ -1,4 +1,4 @@
-import { createContext, useState, ReactNode } from "react";
+import { createContext, useState, ReactNode, useContext } from "react";
 
 // context type
 interface ThemeContextType {
@@ -7,7 +7,10 @@ interface ThemeContextType {
 }
 
 // creating context
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+const ThemeContext = createContext<ThemeContextType>({
+  theme: "light",
+  toggleTheme: () => {},
+});
 
 // provider function type
 
@@ -28,5 +31,17 @@ const ThemeProvider: React.FC<{ children: ReactNode }> = function ({
   );
 };
 
+const useTheme = function (ThemeContext: React.Context<ThemeContextType>) {
+  const context = useContext(ThemeContext);
+
+  if (!context) {
+    throw new Error(
+      "ThemeContext is not provided. Make sure ThemeContext properly wraps the component."
+    );
+  }
+
+  return context;
+};
+
 export default ThemeContext;
-export { ThemeProvider };
+export { ThemeProvider, useTheme };
