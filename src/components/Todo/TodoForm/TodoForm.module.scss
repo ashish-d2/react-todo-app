@@ -13,6 +13,7 @@
   padding: 0.875em 1.25em;
   margin-bottom: 1em;
   transition: height 0.3s ease, gap 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .submit_btn {
@@ -23,6 +24,11 @@
   border: 1px solid c.$very-light-gary;
   cursor: pointer;
   transition: width 0.3s ease, height 0.3s ease;
+  transition: border-color 0.3s ease;
+
+  &:hover {
+    border-color: c.$bg-form-dark;
+  }
 }
 
 .todo_input_field {
@@ -33,8 +39,10 @@
   font-size: 12px;
   transition: font-size 0.3s ease;
   caret-color: c.$active;
+  transition: background-color 0.3s ease;
 
   &:focus {
+    outline: none;
     outline-color: transparent;
   }
 
@@ -58,5 +66,19 @@
 
   .todo_input_field {
     font-size: 16px;
+  }
+}
+
+// dark theme styles
+.todoForm_dark {
+  background-color: c.$bg-form-dark;
+
+  .todo_input_field {
+    background-color: c.$bg-form-dark;
+    color: c.$bg-form-dark-text;
+  }
+
+  .submit_btn:hover {
+    border-color: c.$bg-form-dark-text;
   }
 }
