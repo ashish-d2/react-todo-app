@@ -9,6 +9,10 @@
   color: c.$light-gray;
   font-size: 0.75rem;
 
+  background-color: inherit;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+
   button {
     border: none;
     background-color: transparent;
@@ -28,5 +32,12 @@
     & > * {
       flex-shrink: 0;
     }
+  }
+}
+
+// dark theme
+.dark {
+  button:hover {
+    color: c.$bg-form-dark-text;
   }
 }

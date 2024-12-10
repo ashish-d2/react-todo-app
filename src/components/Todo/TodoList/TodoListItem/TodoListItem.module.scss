@@ -60,6 +60,10 @@
   .completed_btn {
     background: linear-gradient(120deg, #55ddff, #c058f3);
     border: none;
+
+    .checkIcon {
+      opacity: 1;
+    }
   }
 
   p {
@@ -91,4 +95,26 @@
   width: 100%;
   height: 1px;
   border: none;
+  transition: background-color 0.3s ease;
+}
+
+// check icon - when check icon is active change it to opacity: 1
+.checkIcon {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+// dark theme
+.todoList_item__dark {
+  p {
+    color: c.$bg-form-dark-text;
+  }
+
+  .submit_btn:hover {
+    border-color: #fff;
+  }
+}
+
+.line__dark {
+  background-color: c.$bg-form-dark-line;
 }

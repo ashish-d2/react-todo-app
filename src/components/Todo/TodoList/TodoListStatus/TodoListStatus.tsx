@@ -4,7 +4,14 @@ import styles from "./TodoListStatus.module.scss";
 
 import TodoListController from "../../TodoListController/TodoListController";
 
-const TodoListStatus = function () {
+// props type
+interface ComponentProps {
+  theme: string;
+}
+
+// component
+const TodoListStatus: React.FC<ComponentProps> = function ({ theme }) {
+  // useState
   const [currScreenSize, setCurrScreenSize] = useState<number>(
     window.innerWidth
   );
@@ -22,7 +29,11 @@ const TodoListStatus = function () {
   }, []);
 
   return (
-    <div className={styles.todoListStatus}>
+    <div
+      className={`${styles.todoListStatus} ${
+        theme === "dark" ? styles.dark : ""
+      }`}
+    >
       <p>5 items left</p>
       {currScreenSize >= 768 ? <TodoListController /> : ""}
       <button>Clear Completed</button>

@@ -1,5 +1,16 @@
+@use "./../../../scss/color" as c;
+
 .todo_list {
   width: 100%;
   background-color: #fff;
   border-radius: 5px;
+  box-shadow: 0 0 10px c.$bg-form-dark-text;
+
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+// dark theme
+.todo_list_dark {
+  background-color: c.$bg-form-dark;
+  box-shadow: none;
 }

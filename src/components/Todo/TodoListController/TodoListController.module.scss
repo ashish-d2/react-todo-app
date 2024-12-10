@@ -9,6 +9,9 @@
   background-color: #fff;
   border-radius: 5px;
   margin-top: 1em;
+  box-shadow: 0 0 10px c.$bg-form-dark-text;
+
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 
   button {
     border: none;
@@ -34,5 +37,16 @@
     // removing padding and margin (when min-width is 768px the component is rendered inside TodoList controller so removing padding otherwise component style breaks.
     padding: 0 80px;
     margin-top: 0;
+    box-shadow: none;
+  }
+}
+
+// dark mode theme
+.dark {
+  background-color: c.$bg-form-dark;
+  box-shadow: none;
+
+  button:not(.active):hover {
+    color: c.$bg-form-dark-text;
   }
 }
