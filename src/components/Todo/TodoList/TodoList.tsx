@@ -3,6 +3,7 @@ import styles from "./TodoList.module.scss";
 // imports
 import TodoListItem from "./TodoListItem/TodoListItem";
 import TodoListStatus from "./TodoListStatus/TodoListStatus";
+import TodoListEmpty from "../TodoListEmpty/TodoListEmpty";
 
 // context import
 import ThemeContext from "../../../context/ThemeContext";
@@ -18,6 +19,7 @@ const TodoList = function () {
       }`}
     >
       <TodoListItem />
+      {/* <TodoListEmpty theme={theme} /> */}
 
       <TodoListStatus theme={theme} />
     </div>
