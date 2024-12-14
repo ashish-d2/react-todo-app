@@ -9,9 +9,16 @@ import { ReactComponent as CheckIcon } from "./../../../../assets/images/icon-ch
 import ThemeContext from "../../../../context/ThemeContext";
 import { useTheme } from "../../../../context/ThemeContext";
 
+// Component Props
+type ComponentProps = {
+  todoMessage: string;
+  todoStatus: "active" | "completed";
+};
 // In order to mark a todo completed - the btn style is "completed_btn" and text style is "completed_text"
-
-const TodoListItem = function () {
+const TodoListItem: React.FC<ComponentProps> = function ({
+  todoMessage,
+  todoStatus,
+}) {
   const { theme } = useTheme(ThemeContext);
 
   return (
@@ -22,10 +29,20 @@ const TodoListItem = function () {
         }`}
       >
         <div className={styles.todoAndBtnContainer}>
-          <button className={`${styles.submit_btn}`}>
+          <button
+            className={`${styles.submit_btn} ${
+              todoStatus === "completed" ? styles.completed_btn : ""
+            }`}
+          >
             <CheckIcon className={styles.checkIcon} />
           </button>
-          <p>Jog around the park 3x</p>
+          <p
+            className={`${
+              todoStatus === "completed" ? styles.completed_text : ""
+            }`}
+          >
+            {todoMessage}
+          </p>
         </div>
 
         <CrossIcon className={styles.cross_icon} />
