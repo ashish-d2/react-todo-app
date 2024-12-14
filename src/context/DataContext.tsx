@@ -33,8 +33,12 @@ const DataProvider: React.FC<{ children: ReactNode }> = function ({
     id: number,
     status: "completed" | "active"
   ) {
+    const newStatus = status === "completed" ? "active" : "completed";
+
     setTodos((prev) =>
-      prev.map((todo) => (todo.id === id ? { ...todo, status } : todo))
+      prev.map((todo) =>
+        todo.id === id ? { ...todo, status: newStatus } : todo
+      )
     );
   };
 

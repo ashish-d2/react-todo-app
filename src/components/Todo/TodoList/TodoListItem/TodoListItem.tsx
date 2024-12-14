@@ -8,18 +8,32 @@ import { ReactComponent as CheckIcon } from "./../../../../assets/images/icon-ch
 // context import
 import ThemeContext from "../../../../context/ThemeContext";
 import { useTheme } from "../../../../context/ThemeContext";
+import { useData } from "../../../../context/DataContext";
 
 // Component Props
 type ComponentProps = {
+  id: number;
   todoMessage: string;
   todoStatus: "active" | "completed";
 };
 // In order to mark a todo completed - the btn style is "completed_btn" and text style is "completed_text"
 const TodoListItem: React.FC<ComponentProps> = function ({
+  id,
   todoMessage,
   todoStatus,
 }) {
   const { theme } = useTheme(ThemeContext);
+  const { updateTodoStatus } = useData();
+
+  // On btn click toggle todo status
+  const handleStatusChangeBtnClick = function (
+    id: number,
+    status: "completed" | "active"
+  ) {
+    updateTodoStatus(id, status);
+  };
+
+  console.log(id, todoStatus, todoMessage);
 
   return (
     <>
@@ -33,6 +47,7 @@ const TodoListItem: React.FC<ComponentProps> = function ({
             className={`${styles.submit_btn} ${
               todoStatus === "completed" ? styles.completed_btn : ""
             }`}
+            onClick={() => handleStatusChangeBtnClick(id, todoStatus)}
           >
             <CheckIcon className={styles.checkIcon} />
           </button>

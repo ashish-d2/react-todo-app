@@ -28,6 +28,7 @@ const TodoList = function () {
       {todos.map((todo) => (
         <TodoListItem
           key={todo.id}
+          id={todo.id}
           todoMessage={todo.text}
           todoStatus={todo.status}
         />
