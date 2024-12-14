@@ -9,11 +9,15 @@ import Todo from "./components/Todo/Todo";
 // context
 import ThemeContext from "./context/ThemeContext";
 import { ThemeProvider } from "./context/ThemeContext";
+import { DataProvider } from "./context/DataContext";
 
+// Main function
 function App() {
   return (
     <ThemeProvider>
-      <AppContent />
+      <DataProvider>
+        <AppContent />
+      </DataProvider>
     </ThemeProvider>
   );
 }
