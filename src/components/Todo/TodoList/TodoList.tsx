@@ -12,9 +12,7 @@ import { useData } from "../../../context/DataContext";
 
 const TodoList = function () {
   const { theme } = useTheme(ThemeContext);
-  const { todos } = useData();
-
-  console.log(todos, todos.length);
+  const { filteredTodos } = useData();
 
   // If todolist (todos) is empty then display TodoListEmpty message.
   return (
@@ -23,9 +21,9 @@ const TodoList = function () {
         theme === "dark" ? styles.todo_list_dark : ""
       }`}
     >
-      {todos.length === 0 ? <TodoListEmpty theme={theme} /> : ""}
+      {filteredTodos.length === 0 ? <TodoListEmpty theme={theme} /> : ""}
 
-      {todos.map((todo) => (
+      {filteredTodos.map((todo) => (
         <TodoListItem
           key={todo.id}
           id={todo.id}
