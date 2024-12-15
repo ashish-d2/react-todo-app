@@ -23,7 +23,7 @@ const TodoListItem: React.FC<ComponentProps> = function ({
   todoStatus,
 }) {
   const { theme } = useTheme(ThemeContext);
-  const { updateTodoStatus } = useData();
+  const { updateTodoStatus, deleteTodo } = useData();
 
   // On btn click toggle todo status
   const handleStatusChangeBtnClick = function (
@@ -31,6 +31,11 @@ const TodoListItem: React.FC<ComponentProps> = function ({
     status: "completed" | "active"
   ) {
     updateTodoStatus(id, status);
+  };
+
+  // On btn click delete Todo
+  const handleDeleteBtnClick = function (id: number) {
+    deleteTodo(id);
   };
 
   console.log(id, todoStatus, todoMessage);
@@ -60,7 +65,10 @@ const TodoListItem: React.FC<ComponentProps> = function ({
           </p>
         </div>
 
-        <CrossIcon className={styles.cross_icon} />
+        <CrossIcon
+          className={styles.cross_icon}
+          onClick={() => handleDeleteBtnClick(id)}
+        />
       </div>
       <hr
         className={`${styles.line} ${
