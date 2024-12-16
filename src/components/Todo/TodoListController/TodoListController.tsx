@@ -7,7 +7,7 @@ import { useData } from "../../../context/DataContext";
 
 const TodoListController = function () {
   const { theme } = useTheme(ThemeContext);
-  const { setFilterMethod } = useData();
+  const { filterMethod, setFilterMethod } = useData();
 
   return (
     <div
@@ -15,11 +15,24 @@ const TodoListController = function () {
         theme === "dark" ? styles.dark : ""
       }`}
     >
-      <button className={styles.active} onClick={() => setFilterMethod("all")}>
+      <button
+        className={`${filterMethod === "all" ? styles.active : ""}`}
+        onClick={() => setFilterMethod("all")}
+      >
         All
       </button>
-      <button onClick={() => setFilterMethod("active")}>Active</button>
-      <button onClick={() => setFilterMethod("completed")}>Completed</button>
+      <button
+        className={`${filterMethod === "active" ? styles.active : ""}`}
+        onClick={() => setFilterMethod("active")}
+      >
+        Active
+      </button>
+      <button
+        className={`${filterMethod === "completed" ? styles.active : ""}`}
+        onClick={() => setFilterMethod("completed")}
+      >
+        Completed
+      </button>
     </div>
   );
 };

@@ -14,6 +14,7 @@ interface DataContextType {
   addTodo: (text: string) => void;
   updateTodoStatus: (id: number, status: "completed" | "active") => void;
   deleteTodo: (id: number) => void;
+  filterMethod: "all" | "completed" | "active";
   setFilterMethod: React.Dispatch<
     React.SetStateAction<"active" | "completed" | "all">
   >;
@@ -96,6 +97,7 @@ const DataProvider: React.FC<{ children: ReactNode }> = function ({
         addTodo,
         updateTodoStatus,
         deleteTodo,
+        filterMethod,
         setFilterMethod,
         deleteCompletedTodos,
       }}
