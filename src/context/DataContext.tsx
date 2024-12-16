@@ -10,12 +10,14 @@ type Todo = {
 interface DataContextType {
   todos: Todo[];
   filteredTodos: Todo[];
+  length: number;
   addTodo: (text: string) => void;
   updateTodoStatus: (id: number, status: "completed" | "active") => void;
   deleteTodo: (id: number) => void;
   setFilterMethod: React.Dispatch<
     React.SetStateAction<"active" | "completed" | "all">
   >;
+  deleteCompletedTodos: () => void;
 }
 
 // Create a context
@@ -76,15 +78,26 @@ const DataProvider: React.FC<{ children: ReactNode }> = function ({
   // filterd Todos
   const filteredTodos = getFilteredTodos(filterMethod);
 
+  // stores total number of todos which are incomplete
+  let length: number = todos.filter((todo) => todo.status === "active").length;
+
+  const deleteCompletedTodos = function () {
+    setTodos((prevTodos) =>
+      prevTodos.filter((todo) => todo.status !== "completed")
+    );
+  };
+
   return (
     <DataContext.Provider
       value={{
         todos,
         filteredTodos,
+        length,
         addTodo,
         updateTodoStatus,
         deleteTodo,
         setFilterMethod,
+        deleteCompletedTodos,
       }}
     >
       {children}

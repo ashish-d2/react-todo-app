@@ -4,6 +4,8 @@ import styles from "./TodoListStatus.module.scss";
 
 import TodoListController from "../../TodoListController/TodoListController";
 
+import { useData } from "../../../../context/DataContext";
+
 // props type
 interface ComponentProps {
   theme: string;
@@ -15,6 +17,8 @@ const TodoListStatus: React.FC<ComponentProps> = function ({ theme }) {
   const [currScreenSize, setCurrScreenSize] = useState<number>(
     window.innerWidth
   );
+
+  const { length, deleteCompletedTodos } = useData();
 
   useEffect(() => {
     const handleResize = function () {
@@ -34,9 +38,9 @@ const TodoListStatus: React.FC<ComponentProps> = function ({ theme }) {
         theme === "dark" ? styles.dark : ""
       }`}
     >
-      <p>5 items left</p>
+      <p>{length} items left</p>
       {currScreenSize >= 768 ? <TodoListController /> : ""}
-      <button>Clear Completed</button>
+      <button onClick={() => deleteCompletedTodos()}>Clear Completed</button>
     </div>
   );
 };
