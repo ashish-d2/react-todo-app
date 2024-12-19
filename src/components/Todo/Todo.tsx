@@ -6,7 +6,14 @@ import TodoForm from "./TodoForm/TodoForm";
 import TodoList from "./TodoList/TodoList";
 import TodoListController from "./TodoListController/TodoListController";
 
+// context import
+import { useData } from "../../context/DataContext";
+
+// Dnd imports
+import { closestCenter, DndContext, DragEndEvent } from "@dnd-kit/core";
+
 const Todo = function () {
+  const { rearrangeTodos } = useData();
   const [screenSize, setScreenSize] = useState<number>(window.innerWidth);
 
   useEffect(() => {
@@ -21,10 +28,21 @@ const Todo = function () {
     };
   }, []);
 
+  // dnd on drag end
+  const handleDragEnd = function (event: DragEndEvent) {
+    const { active, over } = event;
+
+    if (over && active.id !== over.id) {
+      rearrangeTodos(+active.id, +over.id);
+    }
+  };
+
   return (
     <div className={styles.todo}>
       <TodoForm />
-      <TodoList />
+      <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+        <TodoList />
+      </DndContext>
 
       {screenSize < 768 ? <TodoListController /> : ""}
     </div>

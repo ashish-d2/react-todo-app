@@ -1,3 +1,4 @@
+import { arrayMove } from "@dnd-kit/sortable";
 import { createContext, ReactNode, useContext, useState } from "react";
 
 // type
@@ -19,6 +20,7 @@ interface DataContextType {
     React.SetStateAction<"active" | "completed" | "all">
   >;
   deleteCompletedTodos: () => void;
+  rearrangeTodos: (original: number, current: number) => void;
 }
 
 // Create a context
@@ -88,6 +90,16 @@ const DataProvider: React.FC<{ children: ReactNode }> = function ({
     );
   };
 
+  // Re-arrange todos after dnd event ends
+  const rearrangeTodos = function (original: number, current: number) {
+    const originalIndex = todos.findIndex((todo) => todo.id === original);
+    const currIndex = todos.findIndex((todo) => todo.id === current);
+
+    const updatedTodos = arrayMove(todos, originalIndex, currIndex);
+
+    setTodos((prev) => updatedTodos);
+  };
+
   return (
     <DataContext.Provider
       value={{
@@ -100,6 +112,7 @@ const DataProvider: React.FC<{ children: ReactNode }> = function ({
         filterMethod,
         setFilterMethod,
         deleteCompletedTodos,
+        rearrangeTodos,
       }}
     >
       {children}

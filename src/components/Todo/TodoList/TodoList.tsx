@@ -10,6 +10,9 @@ import ThemeContext from "../../../context/ThemeContext";
 import { useTheme } from "../../../context/ThemeContext";
 import { useData } from "../../../context/DataContext";
 
+// dnd imports
+import { SortableContext } from "@dnd-kit/sortable";
+
 const TodoList = function () {
   const { theme } = useTheme(ThemeContext);
   const { filteredTodos } = useData();
@@ -23,14 +26,16 @@ const TodoList = function () {
     >
       {filteredTodos.length === 0 ? <TodoListEmpty theme={theme} /> : ""}
 
-      {filteredTodos.map((todo) => (
-        <TodoListItem
-          key={todo.id}
-          id={todo.id}
-          todoMessage={todo.text}
-          todoStatus={todo.status}
-        />
-      ))}
+      <SortableContext items={filteredTodos}>
+        {filteredTodos.map((todo) => (
+          <TodoListItem
+            key={todo.id}
+            id={todo.id}
+            todoMessage={todo.text}
+            todoStatus={todo.status}
+          />
+        ))}
+      </SortableContext>
 
       <TodoListStatus theme={theme} />
     </div>

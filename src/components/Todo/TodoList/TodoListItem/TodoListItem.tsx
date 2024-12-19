@@ -10,6 +10,10 @@ import ThemeContext from "../../../../context/ThemeContext";
 import { useTheme } from "../../../../context/ThemeContext";
 import { useData } from "../../../../context/DataContext";
 
+// dnd import
+import { useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
+
 // Component Props
 type ComponentProps = {
   id: number;
@@ -27,9 +31,11 @@ const TodoListItem: React.FC<ComponentProps> = function ({
 
   // On btn click toggle todo status
   const handleStatusChangeBtnClick = function (
+    event: React.MouseEvent<HTMLButtonElement>,
     id: number,
     status: "completed" | "active"
   ) {
+    event.stopPropagation();
     updateTodoStatus(id, status);
   };
 
@@ -38,11 +44,22 @@ const TodoListItem: React.FC<ComponentProps> = function ({
     deleteTodo(id);
   };
 
-  console.log(id, todoStatus, todoMessage);
+  // dnd draggable element
+  const { setNodeRef, attributes, listeners, transform, transition } =
+    useSortable({ id });
+
+  const style = {
+    transition,
+    transform: CSS.Transform.toString(transform),
+  };
 
   return (
     <>
       <div
+        ref={setNodeRef}
+        {...attributes}
+        {...listeners}
+        style={style}
         className={`${styles.todoList_item} ${
           theme === "dark" ? styles.todoList_item__dark : ""
         }`}
@@ -52,7 +69,10 @@ const TodoListItem: React.FC<ComponentProps> = function ({
             className={`${styles.submit_btn} ${
               todoStatus === "completed" ? styles.completed_btn : ""
             }`}
-            onClick={() => handleStatusChangeBtnClick(id, todoStatus)}
+            onClick={(event) =>
+              handleStatusChangeBtnClick(event, id, todoStatus)
+            }
+            onPointerDown={(event) => event.stopPropagation()}
           >
             <CheckIcon className={styles.checkIcon} />
           </button>
@@ -68,6 +88,7 @@ const TodoListItem: React.FC<ComponentProps> = function ({
         <CrossIcon
           className={styles.cross_icon}
           onClick={() => handleDeleteBtnClick(id)}
+          onPointerDown={(event) => event.stopPropagation()}
         />
       </div>
       <hr
