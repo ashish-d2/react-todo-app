@@ -1,5 +1,11 @@
 import { arrayMove } from "@dnd-kit/sortable";
-import { createContext, ReactNode, useContext, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useState,
+  useEffect,
+} from "react";
 
 // type
 type Todo = {
@@ -31,7 +37,16 @@ const DataProvider: React.FC<{ children: ReactNode }> = function ({
   children,
 }) {
   // actual todo list
-  const [todos, setTodos] = useState<Todo[]>([]);
+  const [todos, setTodos] = useState<Todo[]>(() => {
+    const storedData = localStorage.getItem("data");
+    return storedData ? JSON.parse(storedData) : [];
+  });
+
+  // storing data in local storage
+  useEffect(() => {
+    localStorage.setItem("data", JSON.stringify(todos));
+  }, [todos]);
+
   // state to cuntrol todo filter (all, active, completed). By default filter is "All".
   // setFilterMethod is passed to TodoListController compoenent
   const [filterMethod, setFilterMethod] = useState<
