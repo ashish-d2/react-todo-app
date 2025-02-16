@@ -4,6 +4,7 @@ import styles from "./App.module.scss";
 // imports
 import Header from "./components/Header/Header";
 import Todo from "./components/Todo/Todo";
+import Footer from "./components/Footer/Footer";
 
 // context
 import ThemeContext from "./context/ThemeContext";
@@ -40,6 +41,7 @@ function AppContent() {
         <main className={styles.main}>
           <Header />
           <Todo />
+          <Footer />
         </main>
       </div>
     </>

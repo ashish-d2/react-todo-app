@@ -3,7 +3,6 @@
 .todo {
   @include helper.padding-left-right(1.5em);
   @include helper.min-max-width();
-  padding-bottom: 5em;
 
   @media (min-width: 768px) {
     @include helper.padding-left-right(0);
