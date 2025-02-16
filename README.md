@@ -7,10 +7,10 @@ A simple yet powerful Todo app built using **ReactJS** to help you manage and tr
 
 ## 📸 Screenshots:
 ### 🖼️ Screenshot 1:
-![Screenshot 1](YOUR_SCREENSHOT_1_LINK)
+![Screenshot 1](./screenshots/Screenshot-01.png)
 
 ### 🖼️ Screenshot 2:
-![Screenshot 2](YOUR_SCREENSHOT_2_LINK)
+![Screenshot 2](./screenshots/Screenshot-02.png)
 
 ## 🛠️ Tech Stack:
 - ⚛️ **ReactJS** – For building the user interface.
@@ -20,6 +20,7 @@ A simple yet powerful Todo app built using **ReactJS** to help you manage and tr
 - ✅ **Persistent Storage:** Tasks are saved locally, so your to-dos remain intact even after closing or refreshing the browser tab.
 - ➕ **Add Tasks:** Quickly add tasks with a simple input field.
 - ❌ **Delete Tasks:** Easily remove completed or unnecessary tasks.
+- 🔀 **Drag&Drop:** Drag and drop todos according to your priority.
 - 📱 **Responsive Design:** Optimized to work seamlessly across all devices – desktops, tablets, and smartphones.
 - 🧼 **Minimal and Clean UI:** Focused on simplicity for a clutter-free task management experience.
 
