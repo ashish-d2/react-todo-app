@@ -3,7 +3,7 @@
 A simple yet powerful Todo app built using **ReactJS** to help you manage and track your daily tasks efficiently. The app is designed to be lightweight, user-friendly, and capable of saving your tasks even after closing the browser.
 
 ## 🚀 Live Demo:
-[Click here to view live demo](YOUR_LIVE_DEMO_LINK)
+[Click here to view live demo](https://react-todo-app-three-rho.vercel.app/)
 
 ## 📸 Screenshots:
 ### 🖼️ Screenshot 1:
