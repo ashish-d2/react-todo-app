@@ -10,7 +10,15 @@ import TodoListController from "./TodoListController/TodoListController";
 import { useData } from "../../context/DataContext";
 
 // Dnd imports
-import { closestCenter, DndContext, DragEndEvent } from "@dnd-kit/core";
+import {
+  closestCenter,
+  DndContext,
+  DragEndEvent,
+  useSensor,
+  useSensors,
+  TouchSensor,
+  MouseSensor,
+} from "@dnd-kit/core";
 
 const Todo = function () {
   const { rearrangeTodos } = useData();
@@ -37,10 +45,23 @@ const Todo = function () {
     }
   };
 
+  // dnd pointer sensor
+  const touchSensor = useSensor(TouchSensor, {
+    activationConstraint: { delay: 150, tolerance: 5 },
+  });
+
+  const mouseSensor = useSensor(MouseSensor);
+
+  const sensors = useSensors(touchSensor, mouseSensor);
+
   return (
     <div className={styles.todo}>
       <TodoForm />
-      <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+      <DndContext
+        collisionDetection={closestCenter}
+        onDragEnd={handleDragEnd}
+        sensors={sensors}
+      >
         <TodoList />
       </DndContext>
 
