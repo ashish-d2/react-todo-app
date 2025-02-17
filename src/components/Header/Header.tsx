@@ -13,7 +13,11 @@ const Header = function () {
     <div className={styles.header_container}>
       <h1>TODO</h1>
 
-      <button className={styles.btn} onClick={() => toggleTheme()}>
+      <button
+        className={styles.btn}
+        onClick={() => toggleTheme()}
+        aria-label="Dark/Light mode icon"
+      >
         {theme === "light" ? (
           <MoonIcon className={styles.header_icon} />
         ) : (

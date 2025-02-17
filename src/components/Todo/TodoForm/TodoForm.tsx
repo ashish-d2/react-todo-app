@@ -43,6 +43,7 @@ const TodoForm = function () {
         type="submit"
         className={styles.submit_btn}
         onClick={(e) => handleSubmitBtnClick(e)}
+        aria-label="Submit Button"
       ></button>
       <input
         type="text"
