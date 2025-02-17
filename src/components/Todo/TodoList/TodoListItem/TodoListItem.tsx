@@ -72,6 +72,8 @@ const TodoListItem: React.FC<ComponentProps> = function ({
             onClick={(event) =>
               handleStatusChangeBtnClick(event, id, todoStatus)
             }
+            onTouchStart={(event) => event.stopPropagation()}
+            onMouseDown={(event) => event.stopPropagation()}
             onPointerDown={(event) => event.stopPropagation()}
           >
             <CheckIcon className={styles.checkIcon} />
@@ -88,6 +90,8 @@ const TodoListItem: React.FC<ComponentProps> = function ({
         <CrossIcon
           className={styles.cross_icon}
           onClick={() => handleDeleteBtnClick(id)}
+          onTouchStart={(event) => event.stopPropagation()}
+          onMouseDown={(event) => event.stopPropagation()}
           onPointerDown={(event) => event.stopPropagation()}
         />
       </div>
